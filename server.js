@@ -1,6 +1,14 @@
-var http = require('http')
-var port = process.env.PORT || 1337;
-http.createServer(function(req, res) {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello from Azure running node version: ' + process.version + '</br>');
-}).listen(port);
+import express from 'express';
+/*import schema from './data/schema';
+import GraphQLHTTP from 'express-qraphql';
+
+
+app.use(express.static('public'));
+app.use('/graphql', GraphQLHTTP({
+	schema,
+	graphql: true
+}))*/
+
+let app = express();
+app.get('/', (req, res) => res.send('Hello'));
+app.listen('3000', () => console.log('Listening on port 3000'));
